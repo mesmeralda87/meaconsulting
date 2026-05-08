@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MEA Consulting — Strategic Consulting, Sourcing & Project Support</title>
+  <meta name="description" content="MEA Consulting is an independent consulting practice offering strategic advisory, sourcing support, and adaptable project execution for modern businesses." />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #c8a96e;
+      --gold-dim: rgba(200,169,110,0.15);
+      --bg-1: #181818;
+      --bg-2: #202020;
+      --bg-3: #252525;
+      --text-primary: #f0ede8;
+      --text-secondary: #a09890;
+      --text-muted: #6a6258;
+      --border: rgba(255,255,255,0.07);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg-1);
+      color: var(--text-primary);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 22px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(24,24,24,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      color: var(--text-primary);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      padding: 120px 40px 80px;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, #181818 0%, #22201c 40%, #2a2520 60%, #181818 100%);
+    }
+
+    /* geometric lines */
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(45deg, transparent 48%, rgba(200,169,110,0.08) 49%, rgba(200,169,110,0.08) 51%, transparent 52%),
+        linear-gradient(-45deg, transparent 48%, rgba(200,169,110,0.05) 49%, rgba(200,169,110,0.05) 51%, transparent 52%),
+        linear-gradient(45deg, transparent 68%, rgba(200,169,110,0.04) 69%, rgba(200,169,110,0.04) 71%, transparent 72%);
+      background-size: 100% 100%;
+    }
+
+    /* grain overlay */
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.4;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      animation: fadeUp 1s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      animation: fadeUp 1s 0.1s ease both;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(42px, 7vw, 72px);
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      line-height: 1.1;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+      animation: fadeUp 1s 0.15s ease both;
+    }
+
+    .hero-rule {
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      margin: 0 auto 24px;
+      opacity: 0.6;
+      animation: fadeUp 1s 0.2s ease both;
+    }
+
+    .hero-sub {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      max-width: 500px;
+      margin: 0 auto 40px;
+      animation: fadeUp 1s 0.25s ease both;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeUp 1s 0.3s ease both;
+    }
+
+    .btn-ghost {
+      padding: 12px 32px;
+      border: 0.5px solid rgba(200,169,110,0.5);
+      background: transparent;
+      color: var(--gold);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .btn-ghost:hover {
+      background: var(--gold-dim);
+      border-color: var(--gold);
+    }
+
+    .btn-solid {
+      padding: 12px 32px;
+      border: 0.5px solid var(--gold);
+      background: var(--gold);
+      color: #181818;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .btn-solid:hover { opacity: 0.88; }
+
+    .hero-socials {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin-top: 36px;
+      animation: fadeUp 1s 0.35s ease both;
+    }
+
+    .hero-socials a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .hero-socials a:hover { color: var(--gold); }
+
+    /* ─── SECTIONS SHARED ─── */
+    section {
+      padding: 96px 48px;
+    }
+
+    .section-inner {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .section-eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 300;
+      text-align: center;
+      color: var(--text-primary);
+      letter-spacing: 0.03em;
+      margin-bottom: 12px;
+    }
+
+    .section-intro {
+      font-size: 14px;
+      color: var(--text-secondary);
+      text-align: center;
+      max-width: 520px;
+      margin: 0 auto 56px;
+      line-height: 1.8;
+    }
+
+    /* ─── SERVICES ─── */
+    #services { background: var(--bg-2); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 0.5px solid var(--border);
+      margin-bottom: 56px;
+    }
+
+    .service-card {
+      background: var(--bg-2);
+      padding: 40px 32px;
+      transition: background 0.3s;
+    }
+
+    .service-card:hover { background: var(--bg-3); }
+
+    .service-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px;
+      color: var(--gold);
+      letter-spacing: 0.2em;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .service-card h3 {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 14px;
+      letter-spacing: 0.04em;
+    }
+
+    .service-card p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    .services-cta {
+      text-align: center;
+    }
+
+    .services-cta p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    /* ─── ABOUT ─── */
+    #about { background: var(--bg-1); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-left h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 300;
+      color: var(--text-primary);
+      line-height: 1.2;
+      letter-spacing: 0.03em;
+      margin-bottom: 20px;
+    }
+
+    .about-line {
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.6;
+    }
+
+    .about-right p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.9;
+      margin-bottom: 20px;
+    }
+
+    .about-right p:last-child { margin-bottom: 0; }
+
+    /* ─── WHY MEA ─── */
+    #why { background: var(--bg-2); }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .why-card {
+      padding: 32px 0;
+      border-top: 1px solid var(--gold);
+    }
+
+    .why-card h4 {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-primary);
+      letter-spacing: 0.06em;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .why-card p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    /* ─── CONTACT ─── */
+    #contact {
+      background: var(--bg-1);
+      text-align: center;
+    }
+
+    #contact .section-intro { margin-bottom: 36px; }
+
+    .contact-link {
+      display: block;
+      margin-top: 18px;
+      font-size: 12px;
+      color: var(--text-muted);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      transition: color 0.2s;
+    }
+
+    .contact-link:hover { color: var(--gold); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      padding: 28px 48px;
+      border-top: 0.5px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer span {
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      nav { padding: 18px 24px; }
+      .nav-links { display: none; }
+      section { padding: 72px 24px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; gap: 36px; }
+      .why-grid { grid-template-columns: 1fr; gap: 24px; }
+      footer { flex-direction: column; gap: 10px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#hero" class="nav-logo">MEA Consulting</a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#why">Why MEA</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Independent Consulting Practice</p>
+      <h1>MEA Consulting</h1>
+      <div class="hero-rule"></div>
+      <p class="hero-sub">Strategic consulting, sourcing, and project support — built for businesses that move fast and need partners who do too.</p>
+      <div class="hero-btns">
+        <a href="#services" class="btn-ghost">Explore Services</a>
+        <a href="#contact" class="btn-solid">Contact MEA</a>
+      </div>
+      <div class="hero-socials">
+        <a href="mailto:hello@meaconsulting.com">Email</a>
+        <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-inner">
+      <p class="section-eyebrow">What We Do</p>
+      <h2 class="section-title">Built for What Business Actually Needs</h2>
+      <p class="section-intro">MEA works across three core practice areas to help organizations solve problems, source smarter, and execute with confidence.</p>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <span class="service-num">01</span>
+          <h3>Strategic Consulting</h3>
+          <p>Structured thinking for complex decisions. We work with leadership to clarify direction, assess opportunity, and build plans that hold up in execution.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-num">02</span>
+          <h3>Sourcing</h3>
+          <p>Finding the right partners, vendors, and resources — evaluated for quality, alignment, and long-term fit, not just lowest cost.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-num">03</span>
+          <h3>Project Support</h3>
+          <p>When bandwidth is tight, we step in. Flexible scope, fast ramp-up, and professional delivery across projects of varying scale and timeline.</p>
+        </div>
+      </div>
+
+      <div class="services-cta">
+        <p>Ready to discuss your needs?</p>
+        <a href="#contact" class="btn-ghost">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-left">
+          <p class="section-eyebrow" style="text-align:left; margin-bottom:20px;">About MEA</p>
+          <h2>Independent.<br>Focused.<br>Professional.</h2>
+          <div class="about-line" style="margin-top:24px;"></div>
+        </div>
+        <div class="about-right">
+          <p>MEA Consulting is an independent practice built to serve modern businesses with clarity and discretion. We work with a range of clients — from growing companies navigating inflection points to established organizations managing change — delivering focused, practical support without the overhead of a large firm.</p>
+          <p>Our approach is direct, flexible, and built around what each engagement actually needs. No templates, no unnecessary process — just experienced thinking applied to your specific situation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY MEA -->
+  <section id="why">
+    <div class="section-inner">
+      <p class="section-eyebrow">Why Work With Us</p>
+      <h2 class="section-title">What Sets Us Apart</h2>
+      <p class="section-intro">The advantages of working with an independent consulting practice over a large firm.</p>
+      <div class="why-grid">
+        <div class="why-card">
+          <h4>Independent & Focused</h4>
+          <p>No layers, no bureaucracy. You work directly with experienced consultants whose attention is fully aligned to your goals.</p>
+        </div>
+        <div class="why-card">
+          <h4>Adaptable by Design</h4>
+          <p>Every engagement is scoped to fit — whether you need strategic input, sourcing support, or hands-on project execution.</p>
+        </div>
+        <div class="why-card">
+          <h4>Discreet & Professional</h4>
+          <p>We operate with the confidentiality and professionalism that serious business relationships require.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-inner">
+      <p class="section-eyebrow">Get in Touch</p>
+      <h2 class="section-title">Let's Talk</h2>
+      <p class="section-intro">Whether you're exploring a specific need or want to discuss how MEA can support your business, we'd love to hear from you.</p>
+      <a href="mailto:hello@meaconsulting.com" class="btn-solid">Contact MEA</a>
+      <a href="https://linkedin.com" target="_blank" class="contact-link">Or connect on LinkedIn →</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2026 MEA Consulting</span>
+    <span>Strategic Consulting · Sourcing · Project Support</span>
+  </footer>
+
+</body>
+</html>
