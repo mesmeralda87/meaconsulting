@@ -87,11 +87,9 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background:
-        linear-gradient(135deg, #181818 0%, #22201c 40%, #2a2520 60%, #181818 100%);
+      background: linear-gradient(135deg, #181818 0%, #22201c 40%, #2a2520 60%, #181818 100%);
     }
 
-    /* geometric lines */
     .hero-bg::before {
       content: '';
       position: absolute;
@@ -103,7 +101,6 @@
       background-size: 100% 100%;
     }
 
-    /* grain overlay */
     .hero-bg::after {
       content: '';
       position: absolute;
@@ -228,9 +225,7 @@
     .hero-socials a:hover { color: var(--gold); }
 
     /* ─── SECTIONS SHARED ─── */
-    section {
-      padding: 96px 48px;
-    }
+    section { padding: 96px 48px; }
 
     .section-inner {
       max-width: 960px;
@@ -306,6 +301,18 @@
       font-size: 13px;
       color: var(--text-secondary);
       line-height: 1.8;
+      margin-bottom: 12px;
+    }
+
+    .service-card p:last-child { margin-bottom: 0; }
+
+    .service-focus {
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      padding-top: 12px;
+      border-top: 0.5px solid var(--border);
+      font-style: italic;
     }
 
     .services-cta {
@@ -325,8 +332,10 @@
       display: grid;
       grid-template-columns: 1fr 2fr;
       gap: 80px;
-      align-items: center;
+      align-items: start;
     }
+
+    .about-left { position: relative; }
 
     .about-left h2 {
       font-family: 'Cormorant Garamond', serif;
@@ -343,6 +352,42 @@
       height: 1px;
       background: var(--gold);
       opacity: 0.6;
+      margin-bottom: 32px;
+    }
+
+    /* Headshot */
+    .headshot-wrap {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      background: var(--bg-3);
+      border: 0.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .headshot-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .headshot-placeholder {
+      text-align: center;
+      padding: 24px;
+    }
+
+    .headshot-placeholder span {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      line-height: 1.8;
     }
 
     .about-right p {
@@ -353,6 +398,23 @@
     }
 
     .about-right p:last-child { margin-bottom: 0; }
+
+    .about-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--text-primary);
+      letter-spacing: 0.06em;
+      margin-bottom: 4px;
+    }
+
+    .about-title {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
 
     /* ─── WHY MEA ─── */
     #why { background: var(--bg-2); }
@@ -474,16 +536,19 @@
           <span class="service-num">01</span>
           <h3>Strategic Consulting</h3>
           <p>Structured thinking for complex decisions. We work with leadership to clarify direction, assess opportunity, and build plans that hold up in execution.</p>
+          <p class="service-focus">Areas of focus include retail operations, vendor strategy, and organizational planning.</p>
         </div>
         <div class="service-card">
           <span class="service-num">02</span>
           <h3>Sourcing</h3>
           <p>Finding the right partners, vendors, and resources — evaluated for quality, alignment, and long-term fit, not just lowest cost.</p>
+          <p class="service-focus">Experience spanning product sourcing, supplier evaluation, and vendor relationship management across retail and consumer goods.</p>
         </div>
         <div class="service-card">
           <span class="service-num">03</span>
           <h3>Project Support</h3>
           <p>When bandwidth is tight, we step in. Flexible scope, fast ramp-up, and professional delivery across projects of varying scale and timeline.</p>
+          <p class="service-focus">Engagements range from short-term advisory to multi-phase operational support across buying, merchandising, and supply chain functions.</p>
         </div>
       </div>
 
@@ -501,11 +566,24 @@
         <div class="about-left">
           <p class="section-eyebrow" style="text-align:left; margin-bottom:20px;">About MEA</p>
           <h2>Independent.<br>Focused.<br>Professional.</h2>
-          <div class="about-line" style="margin-top:24px;"></div>
+          <div class="about-line"></div>
+
+          <!-- HEADSHOT: replace "headshot.jpg" with your actual photo filename -->
+          <div class="headshot-wrap">
+            <img src="headshot.jpg" alt="Esmeralda Allen — MEA Consulting"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="headshot-placeholder" style="display:none;">
+              <span>Add your photo here.<br>Upload headshot.jpg<br>to your GitHub repo.</span>
+            </div>
+          </div>
+
         </div>
         <div class="about-right">
+          <p class="about-name">Esmeralda Allen</p>
+          <p class="about-title">Founder, MEA Consulting</p>
           <p>MEA Consulting is an independent practice built to serve modern businesses with clarity and discretion. We work with a range of clients — from growing companies navigating inflection points to established organizations managing change — delivering focused, practical support without the overhead of a large firm.</p>
-          <p>Our approach is direct, flexible, and built around what each engagement actually needs. No templates, no unnecessary process — just experienced thinking applied to your specific situation.</p>
+          <p>MEA brings particular depth in retail, sourcing, and consumer-facing businesses. Whether the need is strategic direction, vendor evaluation, or operational execution, our approach is direct, flexible, and built around what each engagement actually needs.</p>
+          <p>No templates, no unnecessary process — just experienced thinking applied to your specific situation.</p>
         </div>
       </div>
     </div>
@@ -520,7 +598,7 @@
       <div class="why-grid">
         <div class="why-card">
           <h4>Independent & Focused</h4>
-          <p>No layers, no bureaucracy. You work directly with experienced consultants whose attention is fully aligned to your goals.</p>
+          <p>No layers, no bureaucracy. You work directly with an experienced consultant whose attention is fully aligned to your goals.</p>
         </div>
         <div class="why-card">
           <h4>Adaptable by Design</h4>
